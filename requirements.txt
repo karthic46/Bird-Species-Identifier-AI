@@ -6,3 +6,4 @@ pandas
 soundfile
 scikit-learn
 plotly
+setuptools
