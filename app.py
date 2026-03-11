@@ -100,15 +100,10 @@ hr.styled-hr {
 
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model("model_files/model.h5")
-
-@st.cache_data
-def load_labels():
-    with open("model_files/prediction.json") as f:
-        return json.load(f)
+    model = tf.keras.models.load_model("model_files/model.h5")
+    return model
 
 model = load_model()
-labels = load_labels()
 
 # ---------------------------------------------------------
 # FEATURE EXTRACTION
