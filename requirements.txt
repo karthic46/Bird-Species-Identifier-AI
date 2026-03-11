@@ -6,4 +6,4 @@ pandas
 soundfile
 scikit-learn
 plotly
-setuptools
+setuptools==65.5.0
