@@ -95,3 +95,26 @@ Clone the repository:
 
 **Run the application:**
                         streamlit run app.py
+
+**📊 Model Details**
+
+Model Type: Convolutional Neural Network (CNN)
+Feature Extraction: MFCC (Mel-Frequency Cepstral Coefficients)
+Framework: TensorFlow / Keras
+Input: Bird audio recordings
+Output: Predicted bird species
+
+**🔮 Future Improvements**
+
+Add real-time bird sound detection
+Improve model accuracy with larger dataset
+Display bird image after prediction
+Add top-3 prediction results
+Mobile optimized interface
+
+**👨‍💻 Author**
+
+Karthick Raja
+
+GitHub:
+https://github.com/karthic46
