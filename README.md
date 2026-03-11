@@ -9,7 +9,7 @@ Built using **TensorFlow, Librosa, and Streamlit**, and deployed as an interacti
 ---
 
 ## 🚀 Live Demo
-https://bird-species-identifier-ai-qi82svyxaeieiyo2jzr4wd.streamlit.app
+https://bird-species-identifier-ai-qi82svyxaieeiyo2jzr4wd.streamlit.app/
 
 ---
 
