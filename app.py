@@ -30,7 +30,7 @@ st.set_page_config(
 # CSS DESIGN (MOBILE RESPONSIVE)
 # ---------------------------------------------------------
 
-st.markdown("""
+st.html("""
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *, body, .stApp {
@@ -199,7 +199,7 @@ h1, h2, h3 { letter-spacing: -0.02em !important; }
     .block-container { padding-left: 1rem; padding-right: 1rem; }
 }
 </style>
-""", unsafe_allow_html=True)
+""")
 
 # ---------------------------------------------------------
 # MODEL
@@ -516,8 +516,11 @@ if audio_data is not None:
 # MODEL PERFORMANCE METRICS
 # ---------------------------------------------------------
 st.markdown("<hr class='styled-hr'>", unsafe_allow_html=True)
-st.header("Model Evaluation Metrics")
-st.markdown("<p style='color:#94a3b8; margin-bottom: 2rem;'>Pre-calculated overall performance of the Convolutional Neural Network on the validation dataset.</p>", unsafe_allow_html=True)
+st.markdown("""
+<div class="section-label">Model Performance</div>
+<div class="section-title">Evaluation Metrics</div>
+<div class="section-sub">Pre-calculated results on the CNN validation dataset.</div>
+""", unsafe_allow_html=True)
 
 c1, c2, c3, c4 = st.columns(4)
 
