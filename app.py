@@ -1,4 +1,3 @@
-# pyre-unsafe
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -32,71 +31,171 @@ st.set_page_config(
 # ---------------------------------------------------------
 
 st.markdown("""
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+*, body, .stApp {
+    font-family: 'Inter', sans-serif !important;
+}
 .stApp {
-    background: linear-gradient(180deg, #020617 0%, #071122 100%);
+    background: #050d1a;
 }
-[data-testid="stSidebar"] {
-    display: none;
-}
+[data-testid="stSidebar"] { display: none; }
 .block-container {
-    max-width: 1180px;
-    padding-top: 1.2rem;
-    padding-bottom: 3rem;
-}
-.hero {
-    text-align: center;
-    padding-top: 40px;
-    padding-bottom: 30px;
-}
-.hero h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    color: #f8fafc;
-    line-height: 1.2;
-}
-.hero p {
-    color: #94a3b8;
-    font-size: 1.1rem;
-    margin-top: 0.5rem;
-}
-.metric-card {
-    background: #0f172a;
-    border-radius: 18px;
-    padding: 20px;
-    border: 1px solid rgba(148,163,184,0.15);
-    text-align: center;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1rem;
-}
-.metric-title {
-    color: #94a3b8;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.5rem;
-}
-.metric-value {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: white;
-}
-.gallery-img-container img {
-    border-radius: 12px;
-    margin-bottom: 0.5rem;
-}
-hr.styled-hr {
-    border: 1px solid #1e293b; 
-    margin-top: 2rem; 
-    margin-bottom: 2rem;
+    max-width: 1160px;
+    padding-top: 0rem;
+    padding-bottom: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
-/* Mobile Responsiveness */
+/* ── HERO ── */
+.hero {
+    text-align: center;
+    padding: 56px 24px 40px;
+}
+.hero-badge {
+    display: inline-block;
+    background: rgba(16,185,129,0.12);
+    border: 1px solid rgba(16,185,129,0.3);
+    color: #10b981;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+}
+.hero h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #f1f5f9;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+}
+.hero p {
+    color: #64748b;
+    font-size: 1.05rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #3b82f6;
+    margin-bottom: 6px;
+}
+.section-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin: 0 0 4px;
+}
+.section-sub {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin: 0 0 24px;
+}
+
+/* ── DIVIDER ── */
+hr.styled-hr {
+    border: none;
+    border-top: 1px solid #0f1e32;
+    margin: 2.5rem 0;
+}
+
+/* ── METRIC CARDS ── */
+.metric-card {
+    background: #080f1e;
+    border-radius: 14px;
+    padding: 22px 18px;
+    border: 1px solid #0f1e32;
+    text-align: center;
+    margin-bottom: 1rem;
+    transition: border-color 0.2s;
+}
+.metric-card:hover { border-color: #1e3a5f; }
+.metric-title {
+    color: #475569;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+}
+.metric-value {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    letter-spacing: -0.02em;
+}
+
+/* ── RESULT BANNER ── */
+.result-banner {
+    background: linear-gradient(135deg, #052818 0%, #071f2e 100%);
+    border: 1px solid rgba(16,185,129,0.25);
+    border-radius: 14px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 1.5rem;
+}
+.result-icon { font-size: 2rem; }
+.result-species {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #10b981;
+    letter-spacing: -0.01em;
+}
+.result-label {
+    font-size: 0.78rem;
+    color: #475569;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* ── GALLERY ── */
+.gallery-img-container img {
+    border-radius: 10px;
+    margin-bottom: 6px;
+}
+.gallery-conf {
+    color: #10b981;
+    font-weight: 700;
+    font-size: 1rem;
+}
+.gallery-name {
+    color: #94a3b8;
+    font-size: 0.82rem;
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+/* ── STREAMLIT OVERRIDES ── */
+.stFileUploader, .stAudioInput {
+    background: #080f1e !important;
+    border-radius: 12px !important;
+}
+div[data-testid="stExpander"] {
+    border: 1px solid #0f1e32 !important;
+    border-radius: 12px !important;
+    background: #080f1e !important;
+}
+.stDataFrame { border-radius: 10px; overflow: hidden; }
+h1, h2, h3 { letter-spacing: -0.02em !important; }
+
+/* ── MOBILE ── */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.2rem; }
-    .hero p { font-size: 1rem; }
-    .metric-value { font-size: 1.4rem; }
-    .metric-card { padding: 15px; }
+    .hero h1 { font-size: 2rem; }
+    .hero { padding: 36px 12px 28px; }
+    .metric-value { font-size: 1.3rem; }
     .block-container { padding-left: 1rem; padding-right: 1rem; }
 }
 </style>
@@ -128,8 +227,9 @@ def extract_features(audio, sr):
 
 st.markdown("""
 <div class="hero">
-<h1>Bird Species Identification System</h1>
-<p>Deep learning based bird sound recognition using MFCC audio features</p>
+<div class="hero-badge">🎙️ AI-Powered</div>
+<h1>Bird Species Identification</h1>
+<p>Deep learning audio classification using MFCC features &amp; Convolutional Neural Networks</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -137,8 +237,11 @@ st.markdown("""
 # AUDIO INPUT
 # ---------------------------------------------------------
 
-st.header("Audio Input")
-st.markdown("<p style='color:#94a3b8;'>Upload an audio file or record directly from your microphone.</p>", unsafe_allow_html=True)
+st.markdown("""
+<div class="section-label">Step 1</div>
+<div class="section-title">Audio Input</div>
+<div class="section-sub">Upload an audio file or record directly from your microphone.</div>
+""", unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 
@@ -176,8 +279,19 @@ if audio_data is not None:
         duration = len(audio_data) / sr
 
         st.markdown("<hr class='styled-hr'>", unsafe_allow_html=True)
-        st.header("Prediction Result")
-        st.success(f"Predicted Species: **{bird_name}**")
+        st.markdown(f"""
+        <div class="section-label">Step 2</div>
+        <div class="section-title">Prediction Result</div>
+        """, unsafe_allow_html=True)
+        st.markdown(f"""
+        <div class="result-banner">
+            <div class="result-icon">🐦</div>
+            <div>
+                <div class="result-label">Identified Species</div>
+                <div class="result-species">{bird_name}</div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
         # ---------------------------------------------------------
         # BIRD INFORMATION
@@ -272,8 +386,10 @@ if audio_data is not None:
                 st.markdown('<div class="gallery-img-container">', unsafe_allow_html=True)
                 if os.path.exists(img):
                     st.image(img, use_container_width=True)
-                st.write(f"**{bird.replace('_sound', '')}**")
-                st.markdown(f"<div style='color:#10b981; font-weight:700; font-size:16px;'>{confidence[i]:.2f}%</div>", unsafe_allow_html=True)
+                st.markdown(f"""
+                <div class="gallery-conf">{confidence[i]:.2f}%</div>
+                <div class="gallery-name">{bird.replace('_sound', '')}</div>
+                """, unsafe_allow_html=True)
                 st.markdown('</div>', unsafe_allow_html=True)
 
         # ---------------------------------------------------------
