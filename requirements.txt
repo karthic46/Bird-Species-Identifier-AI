@@ -1,10 +1,10 @@
 streamlit==1.55.0
-tensorflow==2.16.1
+tensorflow==2.21.0
 librosa==0.11.0
-numpy==1.26.4
+numpy==2.4.3
 pandas==2.3.3
 matplotlib==3.10.8
-scikit-learn==1.7.2
+scikit-learn==1.8.0
 plotly==6.6.0
 pydub==0.25.1
 soundfile==0.12.1

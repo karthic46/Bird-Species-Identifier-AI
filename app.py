@@ -207,7 +207,7 @@ h1, h2, h3 { letter-spacing: -0.02em !important; }
 
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model("model_files/model.h5")
+    model = tf.keras.models.load_model("model_files/model.h5", compile=False)
     return model
 
 model = load_model()

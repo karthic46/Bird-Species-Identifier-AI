@@ -84,17 +84,56 @@ Bird-Species-Identifier-AI
 
 Clone the repository:
 
-**bash** 
+```bash
+git clone https://github.com/karthic46/bird-species-identifier-ai.git
+cd bird-species-identifier-ai
+```
 
-     git clone https://github.com/karthic46/bird-species-identifier-ai.git
-    cd bird-species-identifier-ai
+Create and activate a local virtual environment (recommended on Windows):
 
-**Install dependencies:**
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+```
 
-                     pip install -r requirements.txt
+Install dependencies:
 
-**Run the application:**
-                        streamlit run app.py
+```bash
+python -m pip install -r requirements.txt
+```
+
+Dependency policy:
+
+- `requirements.txt` is pinned to tested versions for reproducible installs.
+- If you want newer packages, upgrade intentionally and retest the app before deployment.
+
+Quick health check (recommended):
+
+```bash
+python -c "import tensorflow as tf, librosa, streamlit as st; print('OK | tensorflow', tf.__version__, '| librosa', librosa.__version__, '| streamlit', st.__version__)"
+```
+
+Run the application:
+
+```bash
+python -m streamlit run app.py
+```
+
+### Windows note (TensorFlow install error)
+
+If you see an error like `Could not install packages due to an OSError` with a very long path, you are likely hitting Windows path length limits (common with Microsoft Store Python paths).
+
+Use these fixes:
+
+1. Prefer the local `.venv` setup above instead of global/site-packages installs.
+2. Enable long paths in Windows (admin PowerShell):
+
+```powershell
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
+```
+
+3. Restart Windows, then run install again in the project virtual environment.
 
 **📊 Model Details**
 
